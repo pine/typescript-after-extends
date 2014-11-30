@@ -63,48 +63,52 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// Clone
-	function clone(obj) {
-	    var cloned = {};
-
-	    for (var key in obj) {
-	        if (obj.hasOwnProperty(key)) {
-	            cloned[key] = obj[key];
-	        }
-	    }
-
-	    return cloned;
-	}
-
-	// Mixin
-	function mixin(self, other, withoutProto) {
+	/**
+	 * Mixin
+	 */
+	function mixin (self, other, withoutProto) {
 	    for (var key in other) {
 	        if (other.hasOwnProperty(key)) {
 	            if (key !== 'prototype' || !withoutProto) {
-	                self[key] = other[key];
+	                var d = Object.getOwnPropertyDescriptor(other, key);
+	                Object.defineProperty(self, key, d);
 	            }
 	        }
 	    }
 	}
 
-	// TypeScript style extends
-	// (equals __extends)
-	function extendsTypeScript(d, p) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    __.prototype = b.prototype;
-	    d.prototype = new __();
+	/**
+	 * Create named class with extends
+	 */
+	function createNamedClass (name, klass, baseKlass, superFunc) {
+	    if (!superFunc) {
+	        superFunc = function () {
+	            baseKlass.call(this);
+	        };
+	    }
+	    
+	    return new Function(
+	        'klass', 'superFunc',
+	        'return function ' + name + ' () {' +
+	            'superFunc.apply(this, arguments);' +
+	            'klass.apply(this, arguments);' +
+	        '};'
+	        )(klass, superFunc);
 	}
 
-	// TypeScript extends later
-	function afterExtends(klass, baseKlass) {
-	    var origin = clone(klass);
-	    var originProto = clone(klass.prototype);
-
-	    extendsTypeScript(klass, baseKlass);
-
-	    mixin(klass, origin, true);
-	    mixin(klass.prototype, originProto);
+	/**
+	 * TypeScript extends later
+	 */
+	function afterExtends (klass, baseKlass, superFunc) {
+	    var newKlass = createNamedClass(klass.name, klass, baseKlass, superFunc);
+	    
+	    mixin(newKlass, baseKlass, true);
+	    mixin(newKlass, klass, true);
+	    
+	    mixin(newKlass.prototype, baseKlass.prototype);
+	    mixin(newKlass.prototype, klass.prototype);
+	    
+	    return newKlass;
 	}
 
 	module.exports = afterExtends;
