@@ -1,6 +1,12 @@
 typescript-after-extends
 ------------------------
 
+## Usage
+
+```
+$ npm install typescript-after-extends
+```
+
 ## Examples
 ### Basic example
 
