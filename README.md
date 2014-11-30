@@ -35,3 +35,24 @@ sub.baz;      // 0
 sub.baz = 10;
 sub.baz;      // 10
 ```
+
+## Developing
+### Developing environment
+
+- JavaScript & TypeScript
+- Gulp
+- tsd
+
+### Build
+
+```
+$ npm install
+$ npm run build
+```
+
+### Test
+
+```
+$ npm run build-tests
+$ npm test
+```
