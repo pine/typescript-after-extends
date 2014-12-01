@@ -33,7 +33,7 @@ class Base {
 class SubImpl {
 }
 
-var Sub: Base = afterExtends(SubImpl, Base);
+var Sub: typeof Base = afterExtends(SubImpl, Base);
 
 var sub = new Sub();
 sub.bar();    // 'bar'
