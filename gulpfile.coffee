@@ -6,6 +6,7 @@ typescript = require 'gulp-tsc'
 webpack = require 'gulp-webpack'
 plumber = require 'gulp-plumber'
 jshint = require 'gulp-jshint'
+tslint = require 'gulp-tslint'
 
 pkg = require './package.json'
 
@@ -20,6 +21,10 @@ gulp.task 'lint', ->
     gulp.src ['index.js', 'lib/**/*.js']
         .pipe jshint()
         .pipe jshint.reporter('jshint-stylish')
+    
+    gulp.src 'test/**/*.ts'
+        .pipe tslint()
+        .pipe tslint.report('prose')
 
 gulp.task 'webpack', ->
     gulp.src 'index.js'
