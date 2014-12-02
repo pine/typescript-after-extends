@@ -5,6 +5,7 @@ uglify = require 'gulp-uglify'
 typescript = require 'gulp-tsc'
 webpack = require 'gulp-webpack'
 plumber = require 'gulp-plumber'
+jshint = require 'gulp-jshint'
 
 pkg = require './package.json'
 
@@ -15,7 +16,12 @@ banner = '''
  */
 '''
 
-gulp.task 'build', ->
+gulp.task 'lint', ->
+    gulp.src ['index.js', 'lib/**/*.js']
+        .pipe jshint()
+        .pipe jshint.reporter('jshint-stylish')
+
+gulp.task 'webpack', ->
     gulp.src 'index.js'
         .pipe webpack
             output:
@@ -41,5 +47,7 @@ gulp.task 'build-tests', ->
 
 gulp.task 'watch', ->
     gulp.watch 'test/**/*.ts', ['build-tests']
+    gulp.watch ['index.js', 'lib/**/*.js'], ['lint']
 
 gulp.task 'default', ['build']
+gulp.task 'build', ['webpack', 'lint']
