@@ -36,6 +36,11 @@ class SubImpl {
 var Sub: typeof Base = afterExtends(SubImpl, Base);
 
 var sub = new Sub();
+
+sub instanceof Base;    // true
+sub instanceof Sub;     // true
+sub instanceof SubImpl; // false
+
 sub.bar();    // 'bar'
 sub.baz;      // 0
 sub.baz = 10;
