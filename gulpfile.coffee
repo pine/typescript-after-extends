@@ -4,6 +4,7 @@ header = require 'gulp-header'
 uglify = require 'gulp-uglify'
 typescript = require 'gulp-tsc'
 webpack = require 'gulp-webpack'
+plumber = require 'gulp-plumber'
 
 pkg = require './package.json'
 
@@ -31,10 +32,14 @@ gulp.task 'build', ->
 
 gulp.task 'build-tests', ->
     gulp.src 'test/**/*.ts'
+        .pipe plumber()
         .pipe typescript
             target: 'ES5'
             module: 'commonjs'
             noImplicitAny: true
         .pipe gulp.dest('test/')
+
+gulp.task 'watch', ->
+    gulp.watch 'test/**/*.ts', ['build-tests']
 
 gulp.task 'default', ['build']
