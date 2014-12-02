@@ -34,7 +34,7 @@ describe('Basic Tests', () => {
     var sub: Base;
 
     before(() => {
-        NewSub = afterExtends(Base, Sub);
+        NewSub = afterExtends(Sub, Base);
     });
 
     beforeEach(() => {
@@ -69,5 +69,13 @@ describe('Basic Tests', () => {
     it('Instance setter (equal)', () => {
         var baz = sub.baz = Math.random();
         expect(sub.baz).to.equal(baz);
+    });
+    
+    it('instanceof Base', () => {
+        expect(sub).to.be.an.instanceof(Base);
+    });
+
+    it('instanceof NewSub', () => {
+        expect(sub).to.be.an.instanceof(NewSub);
     });
 });
