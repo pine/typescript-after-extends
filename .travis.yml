@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - 0.10
+before_script:
+  - npm run typings
+  - npm run build
+  - npm run build-tests
+script: npm test

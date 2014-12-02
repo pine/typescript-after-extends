@@ -12,7 +12,8 @@
   "scripts": {
     "test": "mocha -R spec test/**/*.js",
     "build": "gulp build",
-    "build-tests": "gulp build-tests"
+    "build-tests": "gulp build-tests",
+    "typings": "tsd reinstall"
   },
   "author": "Pine Mizune",
   "license": "MIT",
