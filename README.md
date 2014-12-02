@@ -1,5 +1,6 @@
 typescript-after-extends
 ------------------------
+[![Build Status](https://travis-ci.org/pine613/typescript-after-extends.svg?branch=master)](https://travis-ci.org/pine613/typescript-after-extends)
 
 ## Usage
 
