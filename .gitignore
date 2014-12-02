@@ -1,4 +1,8 @@
 node_modules
+npm-debug.log
 typings
 
 test/*.js
+
+gulpfile.js*
+gulpfile.*.js*
