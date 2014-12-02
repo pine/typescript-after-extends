@@ -46,13 +46,14 @@ sub.baz;      // 10
 ### Developing environment
 
 - JavaScript & TypeScript
-- Gulp
+- gulp
 - tsd
 
 ### Build
 
 ```
 $ npm install
+$ npm run typings
 $ npm run build
 ```
 
