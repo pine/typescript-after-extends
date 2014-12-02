@@ -97,16 +97,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	/**
+	 * Create prototype
+	 */
+	function createPrototype (klass, baseKlass, newKlass) {
+	    var __ = function () { this.constructor = newKlass; };
+
+	    __.prototype = baseKlass.prototype;
+	    mixin(__.prototype, klass.prototype);
+
+	    return new __();
+	}
+
+	/**
 	 * TypeScript extends later
 	 */
 	function afterExtends (klass, baseKlass, superFunc) {
 	    var newKlass = createNamedClass(klass.name, klass, baseKlass, superFunc);
-	    
-	    mixin(newKlass, baseKlass, true);
-	    mixin(newKlass, klass, true);
-	    
-	    mixin(newKlass.prototype, baseKlass.prototype);
-	    mixin(newKlass.prototype, klass.prototype);
+	    newKlass.prototype = createPrototype(klass, baseKlass, newKlass);
 	    
 	    return newKlass;
 	}
