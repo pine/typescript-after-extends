@@ -1,6 +1,7 @@
 typescript-after-extends
 ------------------------
 [![Build Status](https://travis-ci.org/pine613/typescript-after-extends.svg?branch=master)](https://travis-ci.org/pine613/typescript-after-extends)
+[![devDependency Status](https://david-dm.org/pine613/typescript-after-extends/dev-status.svg)](https://david-dm.org/pine613/typescript-after-extends#info=devDependencies)
 
 ## Usage
 
