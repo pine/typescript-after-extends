@@ -34,6 +34,9 @@ class Base {
 }
 
 class SubImpl {
+    sub() {
+        return 'sub';
+    }
 }
 
 var Sub: typeof Base = afterExtends(SubImpl, Base);
@@ -43,6 +46,8 @@ var sub = new Sub();
 sub instanceof Base;    // true
 sub instanceof Sub;     // true
 sub instanceof SubImpl; // false
+
+sub.sub();    // 'sub'
 
 sub.bar();    // 'bar'
 sub.baz;      // 0
