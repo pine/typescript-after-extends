@@ -66,7 +66,6 @@ sub.baz;      // 10
 
 ```
 $ npm install
-$ npm run typings
 $ npm run build
 ```
 
@@ -74,6 +73,7 @@ $ npm run build
 Run tests for this library using Mocha and Chai.
 
 ```
+$ npm run typings
 $ npm run build-tests
 $ npm test
 ```
