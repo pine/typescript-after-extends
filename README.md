@@ -66,6 +66,7 @@ $ npm run build
 ```
 
 ### Test
+Run tests for this library using Mocha and Chai.
 
 ```
 $ npm run build-tests
