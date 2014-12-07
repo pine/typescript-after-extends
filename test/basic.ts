@@ -6,8 +6,11 @@ declare var window: any;
 declare var TypeScriptAfterExtends: any;
 
 if (typeof require === 'undefined') {
-    window.require = function (m) {
-        if (m === 'chai') return chai;
+    window.require = function (m: string): any {
+        if (m === 'chai') {
+            return window.chai;
+        }
+
         return TypeScriptAfterExtends;
     };
 }
