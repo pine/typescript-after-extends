@@ -57,7 +57,7 @@ gulp.task 'watch', ->
 
 gulp.task 'test', ->
     run('karma start --single-run').exec()
-    run('mocha -R spec test/**/*.js').exec()
+        .pipe run('mocha -R spec test/**/*.js')
 
 gulp.task 'default', ['build']
 gulp.task 'build', ['webpack', 'lint']
