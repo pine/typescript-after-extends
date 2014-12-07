@@ -2,6 +2,16 @@
 /// <reference path="../typings/chai/chai.d.ts" />
 /// <reference path="../typings/mocha/mocha.d.ts" />
 
+declare var window: any;
+declare var TypeScriptAfterExtends: any;
+
+if (typeof require === 'undefined') {
+    window.require = function (m) {
+        if (m === 'chai') return chai;
+        return TypeScriptAfterExtends;
+    };
+}
+
 import chai = require('chai');
 var expect = chai.expect;
 
