@@ -7,7 +7,6 @@ webpack = require 'gulp-webpack'
 plumber = require 'gulp-plumber'
 jshint = require 'gulp-jshint'
 tslint = require 'gulp-tslint'
-run = require 'gulp-run'
 
 pkg = require './package.json'
 
@@ -54,10 +53,6 @@ gulp.task 'build-tests', ->
 gulp.task 'watch', ->
     gulp.watch 'test/**/*.ts', ['build-tests']
     gulp.watch ['index.js', 'lib/**/*.js'], ['lint']
-
-gulp.task 'test', ->
-    run('karma start --single-run').exec()
-        .pipe run('mocha -R spec test/**/*.js')
 
 gulp.task 'default', ['build']
 gulp.task 'build', ['webpack', 'lint']
