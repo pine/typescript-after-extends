@@ -2,7 +2,7 @@ typescript-after-extends
 ------------------------
 [![Build Status](https://travis-ci.org/pine613/typescript-after-extends.svg?branch=master)](https://travis-ci.org/pine613/typescript-after-extends)
 [![devDependency Status](https://david-dm.org/pine613/typescript-after-extends/dev-status.svg)](https://david-dm.org/pine613/typescript-after-extends#info=devDependencies)
-[![npm version](https://badge.fury.io/js/typescript-after-extends.svg)](http://badge.fury.io/js/typescript-after-extends)
+[![npm version](https://badge.fury.io/js/typescript-after-extends.svg)](http://badge.fury.io/js/typescript-after-extends) [![Greenkeeper badge](https://badges.greenkeeper.io/pine/typescript-after-extends.svg)](https://greenkeeper.io/)
 
 ## Usage
 
